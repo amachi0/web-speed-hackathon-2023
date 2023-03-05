@@ -30,11 +30,6 @@ async function init(): Promise<void> {
   app.use(bodyParser());
   app.use(session({}, app));
 
-  app.use(async (ctx, next) => {
-    ctx.set('Cache-Control', 'no-store');
-    await next();
-  });
-
   const apolloServer = await initializeApolloServer();
   await apolloServer.start();
 

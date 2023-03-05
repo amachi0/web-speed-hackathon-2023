@@ -188,6 +188,9 @@ dist
 ### VisualStudioCode ###
 .vscode/*
 
+### JetBrains ###
+.idea/*
+
 # Local History for Visual Studio Code
 .history/
 
