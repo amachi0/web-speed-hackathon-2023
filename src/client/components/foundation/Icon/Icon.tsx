@@ -1,18 +1,42 @@
 import classNames from 'classnames';
 import type { FC } from 'react';
-import * as Icons from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaCheckCircle, FaPlay,FaShoppingCart, FaUser } from "react-icons/all";
 
 import * as styles from './Icon.styles';
 
 type Props = {
-  type: keyof typeof Icons;
+  type: string;
   width: number;
   height: number;
   color: string;
 };
 
 export const Icon: FC<Props> = ({ color, height, type, width }) => {
-  const Icon = Icons[type];
+  let Icon = FaUser;
+  switch (type) {
+    case 'FaShoppingCart':
+      Icon = FaShoppingCart;
+      break;
+    case 'FaUser':
+      Icon = FaUser;
+      break;
+    case 'FaArrowLeft':
+      Icon = FaArrowLeft;
+      break;
+    case 'FaArrowRight':
+      Icon = FaArrowRight;
+      break;
+    case 'FaPlay':
+      Icon = FaPlay;
+      break;
+    case 'FaCheckCircle':
+      Icon = FaCheckCircle;
+      break;
+    default:
+      console.log('Icon type not found');
+      break;
+  }
+
   return (
     <span className={classNames(type, styles.container({ color, height, width }))}>
       <Icon />
